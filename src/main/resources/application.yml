@@ -1,0 +1,21 @@
+#以下账户用于本地测试 / 正式使用请配置在对应yml上
+id: 532
+name: 雅姿
+site: artistry
+sn: OclKBT62T2z7376o21pm2P1mSERh3PI4pXBrkX9Q400jJk2t0pbKfa7Y6YRV6N40
+
+#id: 191
+#name: 纽崔莱
+#site: nutrilite
+#sn: w6fF339bDJ06vKSb7qG487t33eh4s64yDnDngpG619jJD4h0TjV98Bj7fbCErVHe
+
+logging:
+  path: log/datacube
+
+management:
+  security:
+    enabled: false
+
+#用户名及密码,使用逗号分隔用户,分号分隔名与密码(account1:pass1,acount2:pass2)
+datacubeUsers: wxAmwayAdmin:4bi8votHqpmXcLNn
+

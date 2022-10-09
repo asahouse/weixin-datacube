@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.andc.amway</groupId>
+	<artifactId>MPDatacubeCatcher</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>MPDatacubeCatcher</name>
+	<description>微信公众号分析数据抓取</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<jdbc.url>jdbc:mysql://localhost:3306/MPDatacube?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false</jdbc.url>
+		<jdbc.user>datacube</jdbc.user>
+		<jdbc.password>datacube</jdbc.password>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<quasar-core.version>0.7.8</quasar-core.version>
+		<comsat-spring-boot.version>0.7.0</comsat-spring-boot.version>
+		<capsule-maven-plugin.version>1.5.1</capsule-maven-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+		</dependency>
+
+
+
+
+
+
+
+
+
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>6.0.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.33</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jfinal</groupId>
+			<artifactId>jfinal</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.16</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.ben-manes.caffeine</groupId>
+			<artifactId>caffeine</artifactId>
+			<version>2.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>3.5.7</version>
+		</dependency>
+
+		<!--Quasar 纤程-->
+		<!--<dependency>-->
+			<!--<groupId>co.paralleluniverse</groupId>-->
+			<!--<artifactId>quasar-core</artifactId>-->
+			<!--<version>${quasar-core.version}</version>-->
+			<!--<classifier>jdk8</classifier>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>co.paralleluniverse</groupId>-->
+			<!--<artifactId>comsat-spring-boot</artifactId>-->
+			<!--<version>${comsat-spring-boot.version}</version>-->
+		<!--</dependency>-->
+
+
+	</dependencies>
+
+	<build>
+		<finalName>datacube</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
+			</plugin>
+
+			<!--flyway-->
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>4.2.0</version>
+
+				<configuration>
+					<user>${jdbc.user}</user>
+					<password>${jdbc.password}</password>
+					<url>${jdbc.url}</url>
+					<locations>
+						<location>filesystem:src/main/resources/db/flyway</location>
+					</locations>
+				</configuration>
+			</plugin>
+
+			<!---javaagent:/Users/benjaminkc/Documents/IDEASpace/weixin-datacube/libs/quasar-core-0.7.8-jdk8.jar-->
+			<!--<plugin>-->
+				<!--<groupId>com.github.chrisdchristo</groupId>-->
+				<!--<artifactId>capsule-maven-plugin</artifactId>-->
+				<!--<version>${capsule-maven-plugin.version}</version>-->
+				<!--<configuration>-->
+
+					<!--<appClass>com.andc.amway.datacubecatcher.MpDatacubeCatcherApplication</appClass>-->
+					<!--<type>fat</type>-->
+					<!--<fileDesc>-cap</fileDesc>-->
+					<!--<chmod>true</chmod>-->
+
+					<!--<manifest>-->
+						<!--<entry>-->
+							<!--<key>JVM-Args</key>-->
+							<!--<value>-Xmx512m</value>-->
+						<!--</entry>-->
+						<!--<entry>-->
+							<!--<key>Java-Agents</key>-->
+							<!--<value>quasar-core-${quasar-core.version}-jdk8.jar</value>-->
+						<!--</entry>-->
+						<!--<entry>-->
+							<!--<key>Java-Agents</key>-->
+							<!--<value>tingyun-agent-java.jar</value>-->
+						<!--</entry>-->
+					<!--</manifest>-->
+
+				<!--</configuration>-->
+
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<goals>-->
+							<!--<goal>build</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+				<!--</executions>-->
+			<!--</plugin>-->
+
+		</plugins>
+	</build>
+
+
+</project>

@@ -1,0 +1,53 @@
+static-path: /home/datacube-static
+
+source:
+  platform: Digi #Digi 为配置获取公众号信息, Open第三方平台接入
+  digi:
+    accounts: 532:雅姿:artistry:OclKBT62T2z7376o21pm2P1mSERh3PI4pXBrkX9Q400jJk2t0pbKfa7Y6YRV6N40,191:纽崔莱:nutrilite:w6fF339bDJ06vKSb7qG487t33eh4s64yDnDngpG619jJD4h0TjV98Bj7fbCErVHe
+  open:
+    path: ocs.i-xad.com
+    clientId: SpwCguDZ4PzsP0OaVrbosSrY9BRosPrWuEAs
+    secret: r0mLzOk5YaGjINu6DySUgNVhQbjAbnUAGnLm
+
+weixin:
+  request-limit: 100 #若修改限制值,修改后的反应需要计划任务隔天新增或通过指定接口更新,新限制次数才对往后新日期生效
+  request-diary-rate: 0.1 #百分之十 作为 抓取日计划执行次数限制
+  datacube:
+    startdate: 2014-12-01
+
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${static-path}
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://10.76.178.92:3306/MPDatacube?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: datacube
+    password: datacube
+    driverClassName: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+  redis:
+      database: 0
+      host: 10.76.178.92
+      port: 6379
+      password:
+  #    host: 120.77.183.28
+  #    port: 6379
+  #    password: AsAhouse158
+      pool:
+        max-wait: -1
+        max-active: -1
+        max-idle: 800
+        min-idle: 0
+      timeout: 100000
+  cache:
+    cache-names: datacube:springcache
+    caffeine:
+      spec: maximumSize=500 #,expireAfterAccess=600s
+
+management:
+  security:
+    enabled: true
